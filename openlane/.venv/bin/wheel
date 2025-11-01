@@ -1,4 +1,4 @@
-#!/home/vboxuser/caravel_user_sram/openlane/.venv/bin/python3
+#!/home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/.venv/bin/python3
 import sys
 from wheel.cli import main
 if __name__ == '__main__':

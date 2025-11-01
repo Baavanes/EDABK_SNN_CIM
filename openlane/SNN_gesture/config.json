@@ -1,0 +1,84 @@
+{
+  "//": "Design files",
+  "VERILOG_FILES": [
+    "dir::../../verilog/rtl/defines.v",
+    "dir::../../verilog/rtl/SNN_gesture/user_project_wrapper.v",
+    "dir::../../verilog/rtl/SNN_gesture/nvm_core_decoder.v",
+    "dir::../../verilog/rtl/SNN_gesture/nvm_neuron_block.v",
+    "dir::../../verilog/rtl/SNN_gesture/nvm_neuron_core_256x64.v",
+    "dir::../../verilog/rtl/SNN_gesture/nvm_neuron_spike_out.v",
+    "dir::../../verilog/rtl/SNN_gesture/nvm_synapse_matrix.v"
+  ],
+
+  "MAGIC_EXT_USE_GDS": true,
+
+  "EXTRA_VERILOG_MODELS": [
+    "dir::../../ip/Neuromorphic_X1_32x32/hdl/NEUROMORPHIC_X1_stub.v"
+  ],
+
+  "PNR_SDC_FILE": "dir::signoff.sdc",
+
+  "//": "Hardening strategy variables (1-Macro-First Hardening)",
+  "SYNTH_ELABORATE_ONLY": false,
+  "RUN_POST_GPL_DESIGN_REPAIR": false,
+  "RUN_POST_CTS_RESIZER_TIMING": false,
+  "DESIGN_REPAIR_BUFFER_INPUT_PORTS": false,
+
+  "RUN_ANTENNA_REPAIR": false,
+  "RUN_FILL_INSERTION": false,
+  "RUN_TAP_ENDCAP_INSERTION": false,
+  "RUN_CTS": false,
+  "RUN_IRDROP_REPORT": false,
+  "ERROR_ON_SYNTH_CHECKS": false,
+
+  "IGNORE_DISCONNECTED_MODULES": ["user_project_wrapper"],
+
+  "VERILOG_POWER_DEFINE": "USE_POWER_PINS",
+
+  "//": "Macros configurations",
+ 
+
+  "//": "PDN configurations (straps that land on your met3 pins)",
+  "FP_PDN_VPITCH": 180,
+  "FP_PDN_HPITCH": 180,
+  "FP_PDN_VOFFSET": 20,
+  "FP_PDN_HOFFSET": 46,
+  "FP_PDN_VWIDTH": 6.0,
+  "FP_PDN_HWIDTH": 6.0,
+  "FP_PDN_VSPACING": 15.5,
+  "FP_PDN_HSPACING": 15.5,
+
+  "//": "Core ring inside die bounds",
+  "FP_PDN_CORE_RING": true,
+  "FP_PDN_CORE_RING_VWIDTH": 3.1,
+  "FP_PDN_CORE_RING_HWIDTH": 3.1,
+  "FP_PDN_CORE_RING_VOFFSET": 8.0,
+  "FP_PDN_CORE_RING_HOFFSET": 8.0,
+  "FP_PDN_CORE_RING_VSPACING": 1.7,
+  "FP_PDN_CORE_RING_HSPACING": 1.7,
+
+  "//": "Magic variables",
+  "MAGIC_DRC_USE_GDS": true,
+  "MAGIC_CAPTURE_ERRORS": false,
+  "ERROR_ON_MAGIC_DRC": false,
+
+  "DRT_THREADS": 1,
+  "MAX_TRANSITION_CONSTRAINT": 1.5,
+
+  "//": "Fixed configurations for caravel. You should NOT edit this section",
+  "DESIGN_NAME": "user_project_wrapper",
+  "FP_SIZING": "absolute",
+  "DIE_AREA": [0, 0, 2920, 3520],
+  "FP_DEF_TEMPLATE": "dir::fixed_dont_change/user_project_wrapper.def",
+
+  "VDD_NETS": ["vccd1", "vdda1"],
+  "GND_NETS": ["vssd1"],
+
+  "CLOCK_PORT": "wb_clk_i",
+  "SIGNOFF_SDC_FILE": "dir::signoff.sdc",
+  "MAGIC_DEF_LABELS": false,
+  "CLOCK_PERIOD": 25,
+  "MAGIC_ZEROIZE_ORIGIN": false,
+
+  "meta": { "version": 2 }
+}

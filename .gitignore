@@ -6,12 +6,28 @@
 *.lst
 *.vcd
 *.gtkw
-/env
-/venv
 /caravel
 /dependencies
 /mgmt_core_wrapper
 /logs
+
+# Python/Cocotb Environment
+/venv
+.venv/
+/venv/
+/venv-cocotb/
+/env
+__pycache__/
+*.pyc
+build/
+deps/
+
 # macOS Finder metadata
 .DS_Store
 **/.DS_Store
+
+# Personal use
+test/
+temp.v
+counter.v
+*_origin.*

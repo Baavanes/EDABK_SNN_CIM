@@ -18,10 +18,10 @@ export TIMING_ROOT ?= $(shell pwd)/dependencies/timing-scripts
 export PROJECT_ROOT = $(CUP_ROOT)
 MAKEFLAGS += --warn-undefined-variables
 
-export CARAVEL_ROOT?=$(PWD)/caravel
-export UPRJ_ROOT?=$(PWD)
+export CARAVEL_ROOT?=$(shell pwd)/caravel
+export UPRJ_ROOT?=$(shell pwd)
 PRECHECK_ROOT?=${HOME}/mpw_precheck
-export MCW_ROOT?=$(PWD)/mgmt_core_wrapper
+export MCW_ROOT?=$(shell pwd)/mgmt_core_wrapper
 SIM?=RTL
 
 # Install lite version of caravel, (1): caravel-lite, (0): caravel
@@ -39,8 +39,8 @@ USER_ARGS = -u $$(id -u $$USER):$$(id -g $$USER)
 ifeq ($(ROOTLESS), 1)
 	USER_ARGS =
 endif
-export OPENLANE_ROOT?=$(PWD)/dependencies/openlane_src
-export PDK_ROOT?=$(PWD)/dependencies/pdks
+export OPENLANE_ROOT?=$(shell pwd)/dependencies/openlane_src
+export PDK_ROOT?=$(shell pwd)/dependencies/pdks
 export DISABLE_LVS?=0
 
 export ROOTLESS
@@ -298,8 +298,8 @@ help:
 
 .PHONY: check_dependencies
 check_dependencies:
-	@if [ ! -d "$(PWD)/dependencies" ]; then \
-		mkdir $(PWD)/dependencies; \
+	@if [ ! -d "$(shell pwd)/dependencies" ]; then \
+		mkdir $(shell pwd)/dependencies; \
 	fi
 
 timing-scripts-repo=https://github.com/chipfoundry/timing-scripts.git
