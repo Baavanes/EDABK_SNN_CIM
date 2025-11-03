@@ -41,57 +41,123 @@ module user_project_wrapper #(
     output [2:0] user_irq
 );
 
+    // ------------------------------------------------------------
+    // Default IO states
+    // ------------------------------------------------------------
+    //assign io_out = {`MPRJ_IO_PADS{1'b0}};
+    //assign io_oeb = {`MPRJ_IO_PADS{1'b1}};
+    //assign la_data_out = 128'b0;
+    //assign user_irq = 3'b000;
 
-    // -----------------------------
-    // Instantiate your hard macro
-    // -----------------------------
-   Neuromorphic_X1_wb mprj (
-`ifdef USE_POWER_PINS
-  .VDDC (vccd1),
-  .VDDA (vdda1),
-  .VSS  (vssd1),
-`endif
+    // // ------------------------------------------------------------
+    // // Wishbone address decode
+    // // ------------------------------------------------------------
+    // localparam [31:0] MPRJ0_BASE = 32'h0000_0000;
+    // localparam [31:0] MPRJ1_BASE = 32'h0000_1000;
+    // localparam [31:0] MPRJ_MASK  = 32'hFFFF_F000; // 4KB region
 
-  // Clocks / resets
-  .user_clk (wb_clk_i),
-  .user_rst (wb_rst_i),
-  .wb_clk_i (wb_clk_i),
-  .wb_rst_i (wb_rst_i),
+    // wire sel_mprj0 = ((wbs_adr_i & MPRJ_MASK) == MPRJ0_BASE);
+    // wire sel_mprj1 = ((wbs_adr_i & MPRJ_MASK) == MPRJ1_BASE);
 
-  // Wishbone
-  .wbs_stb_i (wbs_stb_i),
-  .wbs_cyc_i (wbs_cyc_i),
-  .wbs_we_i  (wbs_we_i),
-  .wbs_sel_i (wbs_sel_i),
-  .wbs_dat_i (wbs_dat_i),
-  .wbs_adr_i (wbs_adr_i),
-  .wbs_dat_o (wbs_dat_o),
-  .wbs_ack_o (wbs_ack_o),
+    // wire wbs_cyc_i_0 = wbs_cyc_i & sel_mprj0;
+    // wire wbs_stb_i_0 = wbs_stb_i & sel_mprj0;
+    // wire wbs_cyc_i_1 = wbs_cyc_i & sel_mprj1;
+    // wire wbs_stb_i_1 = wbs_stb_i & sel_mprj1;
 
-  // Scan/Test
-  .ScanInCC  (io_in[4]),
-  .ScanInDL  (io_in[1]),
-  .ScanInDR  (io_in[2]),
-  .TM        (io_in[5]),
-  .ScanOutCC (io_out[0]),
+    // wire        wbs_ack_o_0, wbs_ack_o_1;
+    // wire [31:0] wbs_dat_o_0, wbs_dat_o_1;
 
-  // Analog / bias pins (drive from analog_io[] wires you already built)
-  .Iref          (analog_io[0]),
-  .Vcc_read      (analog_io[1]),
-  .Vcomp         (analog_io[2]),
-  .Bias_comp2    (analog_io[3]),
-  .Vcc_wl_read   (analog_io[12]),
-  .Vcc_wl_set    (analog_io[5]),
-  .Vbias         (analog_io[6]),
-  .Vcc_wl_reset  (analog_io[7]),
-  .Vcc_set       (analog_io[8]),
-  .Vcc_reset     (analog_io[9]),
-  .Vcc_L         (analog_io[10]),
-  .Vcc_Body      (analog_io[11])
-);
+    // Internal scan signals
+    //wire scan_out_cc_0;
+    //wire scan_out_cc_1;
+
+    // ------------------------------------------------------------
+    // Instance 0
+    // ------------------------------------------------------------
+    Neuromorphic_X1_wb mprj0 (
+    `ifdef USE_POWER_PINS
+        .VDDC (vccd1),
+        .VDDA (vdda1),
+        .VSS  (vssd1),
+    `endif
+        .user_clk (wb_clk_i),
+        .user_rst (wb_rst_i),
+        .wb_clk_i (wb_clk_i),
+        .wb_rst_i (wb_rst_i),
+
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i  (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i),
+        .wbs_dat_i (wbs_dat_i),
+        .wbs_adr_i (wbs_adr_i),
+        .wbs_dat_o (wbs_dat_o),
+        .wbs_ack_o (wbs_ack_o),
+
+        .ScanInCC  (io_in[4]),
+        .ScanInDL  (io_in[1]),
+        .ScanInDR  (io_in[2]),
+        .TM        (io_in[5]),
+        .ScanOutCC (io_out[0]),
+
+        .Iref          (analog_io[0]),
+        .Vcc_read      (analog_io[1]),
+        .Vcomp         (analog_io[2]),
+        .Bias_comp2    (analog_io[3]),
+        .Vcc_wl_read   (analog_io[12]),
+        .Vcc_wl_set    (analog_io[5]),
+        .Vbias         (analog_io[6]),
+        .Vcc_wl_reset  (analog_io[7]),
+        .Vcc_set       (analog_io[8]),
+        .Vcc_reset     (analog_io[9]),
+        .Vcc_L         (analog_io[10]),
+        .Vcc_Body      (analog_io[11])
+    );
+
+    // // ------------------------------------------------------------
+    // // Instance 1
+    // // ------------------------------------------------------------
+    Neuromorphic_X1_wb mprj1 (
+    `ifdef USE_POWER_PINS
+        .VDDC (vccd1),
+        .VDDA (vdda1),
+        .VSS  (vssd1),
+    `endif
+        .user_clk (wb_clk_i),
+        .user_rst (wb_rst_i),
+        .wb_clk_i (wb_clk_i),
+        .wb_rst_i (wb_rst_i),
+
+        .wbs_stb_i (wbs_stb_i),
+        .wbs_cyc_i (wbs_cyc_i),
+        .wbs_we_i  (wbs_we_i),
+        .wbs_sel_i (wbs_sel_i),
+        .wbs_dat_i (wbs_dat_i),
+        .wbs_adr_i (wbs_adr_i),
+        .wbs_dat_o (wbs_dat_o),
+        .wbs_ack_o (wbs_ack_o),
+
+        .ScanInCC  (io_in[4]),
+        .ScanInDL  (io_in[1]),
+        .ScanInDR  (io_in[2]),
+        .TM        (io_in[5]),
+        .ScanOutCC (io_out[1]),
+
+        .Iref          (analog_io[0]),
+        .Vcc_read      (analog_io[1]),
+        .Vcomp         (analog_io[2]),
+        .Bias_comp2    (analog_io[3]),
+        .Vcc_wl_read   (analog_io[12]),
+        .Vcc_wl_set    (analog_io[5]),
+        .Vbias         (analog_io[6]),
+        .Vcc_wl_reset  (analog_io[7]),
+        .Vcc_set       (analog_io[8]),
+        .Vcc_reset     (analog_io[9]),
+        .Vcc_L         (analog_io[10]),
+        .Vcc_Body      (analog_io[11])
+    );
 
 
 endmodule
 `default_nettype wire
-
 

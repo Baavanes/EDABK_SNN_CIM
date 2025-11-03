@@ -92,8 +92,8 @@ No property perim found for device sky130_fd_pr__special_pfet_01v8_hvt
 No property topography found for device sky130_fd_pr__special_pfet_01v8_hvt
 No property value found for device sky130_fd_pr__diode_pw2nd_05v5
 No property mult found for device sky130_fd_pr__diode_pw2nd_05v5
-Comparison output logged to file /home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/user_project_wrapper/runs/25_11_01_11_35/61-netgen-lvs/reports/lvs.netgen.rpt
-Logging to file "/home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/user_project_wrapper/runs/25_11_01_11_35/61-netgen-lvs/reports/lvs.netgen.rpt" enabled
+Comparison output logged to file /home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/user_project_wrapper/runs/25_11_02_18_07/61-netgen-lvs/reports/lvs.netgen.rpt
+Logging to file "/home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/user_project_wrapper/runs/25_11_02_18_07/61-netgen-lvs/reports/lvs.netgen.rpt" enabled
 
 Contents of circuit 1:  Circuit: 'user_project_wrapper'
 Circuit user_project_wrapper contains 0 device instances.
@@ -108,5 +108,5 @@ Circuit user_project_wrapper contains no devices.
 Final result: 
 Top level cell failed pin matching.
 
-Logging to file "/home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/user_project_wrapper/runs/25_11_01_11_35/61-netgen-lvs/reports/lvs.netgen.rpt" disabled
+Logging to file "/home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/user_project_wrapper/runs/25_11_02_18_07/61-netgen-lvs/reports/lvs.netgen.rpt" disabled
 LVS Done.

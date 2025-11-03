@@ -27,6 +27,7 @@ deps/
 **/.DS_Store
 
 # Personal use
+work/
 test/
 temp.v
 counter.v

@@ -2,14 +2,14 @@
   "//": "Design files",
   "VERILOG_FILES": [
     "dir::../../verilog/rtl/defines.v",
-    "dir::../../verilog/rtl/neuron_core_snn/user_project_wrapper.v",
-    "dir::../../verilog/rtl/neuron_core_snn/nvm_core_decoder.v",
-    "dir::../../verilog/rtl/neuron_core_snn/nvm_neuron_block.v",
-    "dir::../../verilog/rtl/neuron_core_snn/nvm_neuron_core_256x64.v",
-    "dir::../../verilog/rtl/neuron_core_snn/nvm_neuron_spike_out.v",
-    "dir::../../verilog/rtl/neuron_core_snn/nvm_synapse_matrix.v"
+    "dir::../../verilog/rtl/neuron_core_snn/hdl/user_project_wrapper.v",
+    "dir::../../verilog/rtl/neuron_core_snn/hdl/nvm_core_decoder.v",
+    "dir::../../verilog/rtl/neuron_core_snn/hdl/nvm_neuron_block.v",
+    "dir::../../verilog/rtl/neuron_core_snn/hdl/nvm_neuron_core_256x64.v",
+    "dir::../../verilog/rtl/neuron_core_snn/hdl/nvm_neuron_spike_out.v",
+    "dir::../../verilog/rtl/neuron_core_snn/hdl/nvm_synapse_matrix.v"
   ],
-  "FP_CORE_UTIL": 40
+  "FP_CORE_UTIL": 40,
 
   "MAGIC_EXT_USE_GDS": true,
 

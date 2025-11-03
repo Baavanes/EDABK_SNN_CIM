@@ -14,7 +14,7 @@
   "PNR_SDC_FILE": "dir::signoff.sdc",
 
   "//": "Hardening strategy variables (1-Macro-First Hardening)",
-  "SYNTH_ELABORATE_ONLY": true,
+  "SYNTH_ELABORATE_ONLY": false,
   "RUN_POST_GPL_DESIGN_REPAIR": false,
   "RUN_POST_CTS_RESIZER_TIMING": false,
   "DESIGN_REPAIR_BUFFER_INPUT_PORTS": false,
@@ -40,17 +40,20 @@
     "Neuromorphic_X1_wb": {
       "gds": ["dir::../../gds/Neuromorphic_X1_wb.gds"],
       "lef": ["dir::../../lef/Neuromorphic_X1_wb.lef"],
+      "lib": { "*": "dir::../../lib/Neuromorphic_X1_wb.lib" },
       "instances": {
-        "mprj": { "location": [515.18, 514.24], "orientation": "N" }
-      },
-      "lib": { "*": "dir::../../lib/Neuromorphic_X1_wb.lib" }
+        "mprj0": { "location": [515.18, 514.24],  "orientation": "N" },
+        "mprj1": { "location": [1715.18, 514.24], "orientation": "N" }
+      }
     }
   },
 
-  "//": "Hook macro power pins to Caravel rails (keep consistent with RTL)",
+  "//": "Hook macro power pins to Caravel rails (must match RTL power pins)",
   "PDN_MACRO_CONNECTIONS": [
-    "mprj vccd1 vssd1 VDDC VSS",
-    "mprj vdda1 vssd1 VDDA VSS"
+    "mprj0 vccd1 vssd1 VDDC VSS",
+    "mprj0 vdda1 vssd1 VDDA VSS",
+    "mprj1 vccd1 vssd1 VDDC VSS",
+    "mprj1 vdda1 vssd1 VDDA VSS"
   ],
 
   "//": "PDN configurations (straps that land on your met3 pins)",

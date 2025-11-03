@@ -2,7 +2,7 @@
   "//": "Design files",
   "VERILOG_FILES": [
     "dir::../../verilog/rtl/defines.v",
-    "dir::../../verilog/rtl/user_project_wrapper.v"
+    "dir::../../verilog/rtl/test/user_project_wrapper.v"
   ],
 
   "MAGIC_EXT_USE_GDS": true,
