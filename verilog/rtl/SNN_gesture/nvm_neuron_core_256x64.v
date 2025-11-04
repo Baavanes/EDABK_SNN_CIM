@@ -28,7 +28,7 @@ module nvm_neuron_core_256x64 (
   output        ScanOutCC,       // Data scan chain output
 
   // Analog Pins
-  input         Iref,            // 100 µA current reference
+  input         Iref,            // 100 ÂµA current reference
   input         Vcc_read,        // 0.3 V read rail
   input         Vcomp,           // 0.6 V comparator bias
   input         Bias_comp2,      // 0.6 V comparator bias
@@ -140,19 +140,19 @@ module nvm_neuron_core_256x64 (
 
 endmodule
 
-// - Đánh số thứ tự từ 0
+// - ÄÃ¡nh sá» thá»© tá»± tá»« 0
 // - Neuron Core: 256 axon x 64 neuron.
-// - Chỉ lưu synapse. Weight mặc định là +1 -1. threshold mặc định là 0. Không dùng bias.
-// - Synapse Matrix hình thành bởi 16 IP Neuromorphic X1 32x32
-//   + IP 0: Lưu synap giữa mọi axon với neuron 0,16,32,48 (8 hàng đầu của neuron 0, 8 hàng sau của neuron 16)
-//   + Chỉ 1 địa chỉ 0x3000_0000, nhưng mỗi lần đọc/ghi phải đi kèm data.
-//   Viết vào và đọc ra từ 16 IP X1 cùng một lúc, mỗi lần 1 bit (1 bit này ở cùng vị trí hàng/cột trong cả 16 IP)
-// Khi viết     MODE   ROW    COL    NONE   DATA (synap connection, chia ra mỗi IP 1 bit)
+// - Chá» lÆ°u synapse. Weight máº·c Äá»nh lÃ  +1 -1. threshold máº·c Äá»nh lÃ  0. KhÃ´ng dÃ¹ng bias.
+// - Synapse Matrix hÃ¬nh thÃ nh bá»i 16 IP Neuromorphic X1 32x32
+//   + IP 0: LÆ°u synap giá»¯a má»i axon vá»i neuron 0,16,32,48 (8 hÃ ng Äáº§u cá»§a neuron 0, 8 hÃ ng sau cá»§a neuron 16)
+//   + Chá» 1 Äá»a chá» 0x3000_0000, nhÆ°ng má»i láº§n Äá»c/ghi pháº£i Äi kÃ¨m data.
+//   Viáº¿t vÃ o vÃ  Äá»c ra tá»« 16 IP X1 cÃ¹ng má»t lÃºc, má»i láº§n 1 bit (1 bit nÃ y á» cÃ¹ng vá» trÃ­ hÃ ng/cá»t trong cáº£ 16 IP)
+// Khi viáº¿t     MODE   ROW    COL    NONE   DATA (synap connection, chia ra má»i IP 1 bit)
 //  wbs_dat_i: [31:30][29:25][24:20][19:16][15:0]
-// Khi đọc      MODE   ROW    COL    NONE   STIMULI
+// Khi Äá»c      MODE   ROW    COL    NONE   STIMULI
 //  wbs_dat_i: [31:30][29:25][24:20][19:16][15:0]
 
-  // Ví dụ IP 0:
+  // VÃ­ dá»¥ IP 0:
   // Row Col Axon Neuron
   // 0   0   0    0
   // 0   1   1    0
@@ -162,14 +162,14 @@ endmodule
   // 23  31  255  32
   // 31  31  255  48
 
-// Done pic, viết spike từ Neuron Block vào Neuron Spikeout: viết vào một trong 4 địa chỉ sau
-  // Địa chỉ     Neuron
+// Done pic, viáº¿t spike tá»« Neuron Block vÃ o Neuron Spikeout: viáº¿t vÃ o má»t trong 4 Äá»a chá» sau
+  // Äá»a chá»     Neuron
   // 0x3000_2000 0-15
   // 0x3000_2002 16-31
   // 0x3000_2004 32-47
   // 0x3000_2006 48-63
 
-// - Neuron Spikeout: 64 bit. Đọc từ một trong địa chỉ này ra
-  // Địa chỉ     Neuron
+// - Neuron Spikeout: 64 bit. Äá»c tá»« má»t trong Äá»a chá» nÃ y ra
+  // Äá»a chá»     Neuron
   // 0x3000_1000 0-31
   // 0x3000_1004 32-63

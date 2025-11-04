@@ -22,7 +22,7 @@ module nvm_synapse_matrix (
   output        ScanOutCC,       // Data scan chain output
 
   // Analog Pins
-  input         Iref,            // 100 µA current reference
+  input         Iref,            // 100 ÂµA current reference
   input         Vcc_read,        // 0.3 V read rail
   input         Vcomp,           // 0.6 V comparator bias
   input         Bias_comp2,      // 0.6 V comparator bias
@@ -35,7 +35,7 @@ module nvm_synapse_matrix (
   input         Vcc_L,           // 5 V level shifter supply
   input         Vcc_Body         // 5 V body-bias supply
 );
-  parameter NUM_OF_MACRO = 16;   // number of NVM Neuromorphic X1 macro, 32x32 each
+  parameter NUM_OF_MACRO = 1;   // number of NVM Neuromorphic X1 macro, 32x32 each
   parameter [31:0] MACRO_PADDING = 32'h100;
   parameter [31:0] ADDR_MATCH    = 32'h3000_000C; // only addr can access X1 IP
   parameter  [7:0] MEM_HIGH      = 8'hFF;

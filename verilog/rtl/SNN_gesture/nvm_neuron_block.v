@@ -8,7 +8,7 @@ module nvm_neuron_block(
   output       [15:0] spike_o
   );
 
-  parameter NUM_OF_MACRO = 16;   // number of NVM Neuromorphic X1 macro, 32x32 each
+  parameter NUM_OF_MACRO = 1;   // number of NVM Neuromorphic X1 macro, 32x32 each
   reg signed [15:0] potential [NUM_OF_MACRO-1:0]; // tinh 16 neuron mot luc
 
   generate
