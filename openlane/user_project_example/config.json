@@ -12,6 +12,7 @@
     "FP_PDN_MULTILAYER": true,
     "FP_PDN_CORE_RING": false,
     "VERILOG_FILES": [
+        "dir::../../ip/Neuromorphic_X1_32x32/hdl/Neuromorphic_X1_wb.v",
         "dir::../../ip/Neuromorphic_X1_32x32/hdl/rtls/nvm_neuron_spike_out.v",
         "dir::../../ip/Neuromorphic_X1_32x32/hdl/rtls/nvm_neuron_block.v",
         "dir::../../ip/Neuromorphic_X1_32x32/hdl/rtls/nvm_core_decoder.v",
