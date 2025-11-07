@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/.venv
+set -gx VIRTUAL_ENV /home/vboxuser/EDABK_SNN_CIM/openlane/.venv
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/"bin $PATH

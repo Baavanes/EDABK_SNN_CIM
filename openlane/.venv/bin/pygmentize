@@ -1,4 +1,4 @@
-#!/home/srnk/HUST/projects/EDABK/EDABK_SNN_CIM/openlane/.venv/bin/python3
+#!/home/vboxuser/EDABK_SNN_CIM/openlane/.venv/bin/python3
 import sys
 from pygments.cmdline import main
 if __name__ == '__main__':
